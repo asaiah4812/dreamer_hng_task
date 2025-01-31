@@ -1,0 +1,2 @@
+DATABASE_URL=postgresql://postgres:JiIZmAgwCKABspByPrKfcigvWMlUTXHf@junction.proxy.rlwy.net:48064/railway
+SECRET_KEY=django-insecure-du7jce*d$s_x--x%x#smktkypp+xtdn)yc7f@)-@24e#jcmc1i

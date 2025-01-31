@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['dreamer-hng.up.railway.app', '127.0.0.1']
+ALLOWED_HOSTS = ['dreamer_hng_task.railway.internal', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['https://dreamer-hng.up.railway.app']
 
@@ -63,6 +63,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'my_project_hng.urls'
+
+CSRF_TRUSTED_ORIGINS = ['']
 
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
