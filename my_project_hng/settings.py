@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['dreamer-hng.up.railway.app']
+ALLOWED_HOSTS = ['dreamer-hng.up.railway.app', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['https://dreamer-hng.up.railway.app']
 
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -107,7 +108,7 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL'),
-        conn_max_age=600
+        # conn_max_age=600
     )
 }
 
@@ -149,6 +150,24 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+# Enable WhiteNoise compression and caching support
+WHITENOISE_COMPRESSION_ENABLED = True
+
+# Use the more efficient BROTLI compression when available
+WHITENOISE_USE_FINDERS = True
+
+# Add caching headers
+WHITENOISE_MAX_AGE = 31536000  # 1 year in seconds
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
