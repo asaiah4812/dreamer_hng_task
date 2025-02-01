@@ -32,7 +32,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['dreamerhngtask-production.up.railway.app', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['https://dreamerhngtask-production.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://dreamerhngtask-production.up.railway.app', '127.0.0.1']
 
 
 # Application definition
@@ -70,9 +70,7 @@ CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will
 CORS_ALLOW_CREDENTIALS = True
 
 
-CORS_ALLOWED_ORIGINS = [
-    "dreamerhngtask-production.up.railway.app"
-]
+CSRF_TRUSTED_ORIGINS = ["https://dreamerhngtask-production.up.railway.app"]
 
 
 
